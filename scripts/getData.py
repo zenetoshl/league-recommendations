@@ -24,7 +24,6 @@ for summoner in summoners:
                 matchesJson = responseMatches.json()['matches']
                 for match in matchesJson:
                     matchId = match['gameId']
-                    print(matchId)
                     readed = False
                     while not readed:
                         try:
@@ -37,6 +36,7 @@ for summoner in summoners:
                                 stats = participant['stats']
                                 stats['gameId'] = matchId
                                 stats['gameDuration'] = duration
+                                stats['lane'] = participant['timeline']['lane']
                                 stats['participantId'] = participant['participantId']
                                 stats['teamId'] = participant['teamId']
                                 stats['championId'] = participant['championId']
