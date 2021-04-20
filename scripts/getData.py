@@ -2,7 +2,7 @@ import requests
 import time
 import pandas as pd
 # golbal variables
-api_key = 'api_key=RGAPI-db10613c-0f65-4065-b2c2-a6b832299143'
+api_key = 'api_key=RGAPI-d0d1a606-4ae4-4818-88db-e32869b60c17'
 url = 'https://br1.api.riotgames.com/lol/'
 matchesInfo = []
 challengerSummoners = f'{url}league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5?{api_key}'
@@ -16,7 +16,7 @@ for summoner in summoners:
         accountId = account['accountId']
         beginIndex = 0
         while beginIndex < 200:
-            print(accountId + " " + str(beginIndex))
+            print(accountId + " index: " + str(beginIndex) + " Size: " + str(len(matchesInfo)))
             try:
                 matchlistByAccount = f'{url}match/v4/matchlists/by-account/{accountId}?beginIndex={beginIndex}&{api_key}'
                 beginIndex += 100
@@ -31,10 +31,12 @@ for summoner in summoners:
                             matchByMatchId = f'{url}match/v4/matches/{matchId}?{api_key}'
                             matchResponse = requests.get(matchByMatchId).json()
                             matchId = matchResponse['gameId']
+                            duration = matchResponse['gameDuration']
                             participants = matchResponse['participants']
                             for participant in participants:
                                 stats = participant['stats']
                                 stats['gameId'] = matchId
+                                stats['gameDuration'] = duration
                                 stats['participantId'] = participant['participantId']
                                 stats['teamId'] = participant['teamId']
                                 stats['championId'] = participant['championId']
