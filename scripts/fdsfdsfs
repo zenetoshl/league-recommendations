@@ -1,0 +1,6 @@
+challengers = pd.read_csv('participants.csv')
+challengers = challengers.loc[challengers['gameDuration'] > 1500]
+bronzes = pd.read_csv('bronzeParticipants.csv')
+bronzes = bronzes.loc[bronzes['gameDuration'] > 1500]
+golds = pd.read_csv('goldParticipant2.csv')
+golds = golds.loc[golds['gameDuration'] > 1500]
