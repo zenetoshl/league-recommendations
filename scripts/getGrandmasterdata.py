@@ -4,7 +4,7 @@ import pandas as pd
 # golbal variables
 matchesInfo = []
 try:
-    api_key = 'api_key=RGAPI-b88c4688-0be9-4533-b7b1-390cb4242ce6'
+    api_key = 'api_key=RGAPI-9fd53595-4208-440a-b192-ab0f4383df8e'
     url = 'https://br1.api.riotgames.com/lol/'
     challengerSummoners = f'{url}league/v4/grandmasterleagues/by-queue/RANKED_SOLO_5x5?{api_key}'
     response = requests.get(challengerSummoners)
