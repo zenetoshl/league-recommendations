@@ -13,7 +13,7 @@ from mlxtend.preprocessing import TransactionEncoder
 from mlxtend.frequent_patterns import apriori
 from mlxtend.frequent_patterns import association_rules
 
-api_key = 'api_key=XXXXXXXXXXXXXXXXXXXXXxxx'
+api_key = 'api_key=xxxxxxxxxxxxxxxxxxxxxxx'
 url = 'https://br1.api.riotgames.com/lol/'
 
 
@@ -67,8 +67,7 @@ def dfTreatment(df):
     f = dict.fromkeys(df_treated[attr], 'mean')
     df_treated_group = df_treated.groupby(['participantId'])[attr].agg(f)
     df_treated_group['wardsKilled'] = df_treated_group['wardsKilled'].fillna(0)
-    ss = StandardScaler().fit(df_treated_group[attr])
-    return ss.transform(df_treated_group[attr])
+    return df_treated_group[attr]
 
 def makeCSV(summoner):
     if os.path.isfile(f'{summoner}.csv'):
