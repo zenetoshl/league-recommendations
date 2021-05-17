@@ -13,7 +13,7 @@ from mlxtend.preprocessing import TransactionEncoder
 from mlxtend.frequent_patterns import apriori
 from mlxtend.frequent_patterns import association_rules
 
-api_key = 'api_key=RGAPI-39b15cdd-ef40-45de-bf49-139f493a431d'
+api_key = 'api_key=XXXXXXXXXXXXXXXXXXXXXxxx'
 url = 'https://br1.api.riotgames.com/lol/'
 
 
